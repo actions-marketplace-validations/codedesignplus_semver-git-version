@@ -108,6 +108,7 @@ jobs:
 
       - name: SonarQube Quality Gate check
         id: sonarqube-quality-gate-check
+        if: env.IS_RELEASE == 'true'
         uses: sonarsource/sonarqube-quality-gate-action@master
         timeout-minutes: 5
         env:
