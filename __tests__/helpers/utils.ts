@@ -10,7 +10,7 @@ export class Utils {
     const folder = uuidv4()
 
     this.tmpDirectory = path.resolve(path.join(__dirname, '../temp/', folder))
-    
+
     if (fs.existsSync(this.tmpDirectory)) {
       fs.rmSync(this.tmpDirectory, { recursive: true, force: true })
     }

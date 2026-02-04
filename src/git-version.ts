@@ -312,10 +312,10 @@ export class GitVersion {
       })
 
       return output.split('\n').filter(line => line.trim() !== '')
-    } catch (error: any) {
-      const errorMessage = error.stderr
-        ? error.stderr.toString()
-        : error.message
+    } catch (error) {
+      const err = error as { message: string; stderr?: Buffer }
+
+      const errorMessage = err.stderr ? err.stderr.toString() : err.message
       throw new Error(`[ERROR] Command ${cmd} failed. Details: ${errorMessage}`)
     }
   }
