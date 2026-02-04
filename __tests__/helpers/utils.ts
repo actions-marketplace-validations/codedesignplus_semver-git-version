@@ -10,12 +10,14 @@ export class Utils {
     const folder = uuidv4()
 
     this.tmpDirectory = path.resolve(path.join(__dirname, '../temp/', folder))
-
+    
     if (fs.existsSync(this.tmpDirectory)) {
       fs.rmSync(this.tmpDirectory, { recursive: true, force: true })
     }
 
-    fs.mkdirSync(this.tmpDirectory)
+    if (!fs.existsSync(this.tmpDirectory)) {
+      fs.mkdirSync(this.tmpDirectory, { recursive: true })
+    }
   }
 
   public exec(cmd: string): boolean {

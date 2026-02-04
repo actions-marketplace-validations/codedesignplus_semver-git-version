@@ -308,12 +308,14 @@ export class GitVersion {
       const output = execSync(cmd, {
         cwd: this.options.folder,
         encoding: 'utf8',
-        stdio: ['pipe', 'pipe', 'pipe'] 
+        stdio: ['pipe', 'pipe', 'pipe']
       })
 
       return output.split('\n').filter(line => line.trim() !== '')
-    } catch (error: any) { 
-      const errorMessage = error.stderr ? error.stderr.toString() : error.message;
+    } catch (error: any) {
+      const errorMessage = error.stderr
+        ? error.stderr.toString()
+        : error.message
       throw new Error(`[ERROR] Command ${cmd} failed. Details: ${errorMessage}`)
     }
   }
