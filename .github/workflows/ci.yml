@@ -99,8 +99,8 @@ jobs:
           args: >
             -Dsonar.projectVersion=${{ steps.test-action.outputs.new-version-prefix }}
             -Dsonar.organization=codedesignplus
-            -Dsonar.projectKey=CodeDesignPlus.Actions.GitVersion.Key
-            -Dsonar.projectName=CodeDesignPlus.Actions.GitVersion
+            -Dsonar.projectKey=SemVer.Git.Version.Key
+            -Dsonar.projectName=SemVer.Git.Version
             -Dsonar.test.exclusions=__tests__/**
             -Dsonar.javascript.lcov.reportPaths=coverage/lcov.info
             -Dsonar.sources=src
