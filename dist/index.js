@@ -7862,7 +7862,8 @@ class GitVersion {
             const output = (0, child_process_1.execSync)(cmd, {
                 cwd: this.options.folder,
                 encoding: 'utf8',
-                stdio: ['pipe', 'pipe', 'pipe']
+                stdio: ['pipe', 'pipe', 'pipe'],
+                maxBuffer: 1024 * 1024 * 50
             });
             return output.split('\n').filter(line => line.trim() !== '');
         }
