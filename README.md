@@ -26,13 +26,13 @@
     <br />
     <img alt="sonarcloud" src="https://sonarcloud.io/images/project_badges/sonarcloud-white.svg" width="100">
     <br />
-    <img alt="Quality Gate Status" src="https://sonarcloud.io/api/project_badges/measure?project=CodeDesignPlus.Actions.GitVersion.Key&metric=alert_status" />    
-    <img alt="Security Rating" src="https://sonarcloud.io/api/project_badges/measure?project=CodeDesignPlus.Actions.GitVersion.Key&metric=security_rating"/>
-    <img alt="Reliability Rating" src="https://sonarcloud.io/api/project_badges/measure?project=CodeDesignPlus.Actions.GitVersion.Key&metric=reliability_rating" />
-    <img alt="Vulnerabilities" src="https://sonarcloud.io/api/project_badges/measure?project=CodeDesignPlus.Actions.GitVersion.Key&metric=vulnerabilities" />
-    <img alt="Bugs" src="https://sonarcloud.io/api/project_badges/measure?project=CodeDesignPlus.Actions.GitVersion.Key&metric=bugs" />
-    <img alt="Code Smells" src="https://sonarcloud.io/api/project_badges/measure?project=CodeDesignPlus.Actions.GitVersion.Key&metric=code_smells" />
-    <img alt="Coverage" src="https://sonarcloud.io/api/project_badges/measure?project=CodeDesignPlus.Actions.GitVersion.Key&metric=coverage" />
+    <img alt="Quality Gate Status" src="https://sonarcloud.io/api/project_badges/measure?project=SemVer.Git.Version&metric=alert_status" />    
+    <img alt="Security Rating" src="https://sonarcloud.io/api/project_badges/measure?project=SemVer.Git.Version&metric=security_rating"/>
+    <img alt="Reliability Rating" src="https://sonarcloud.io/api/project_badges/measure?project=SemVer.Git.Version&metric=reliability_rating" />
+    <img alt="Vulnerabilities" src="https://sonarcloud.io/api/project_badges/measure?project=SemVer.Git.Version&metric=vulnerabilities" />
+    <img alt="Bugs" src="https://sonarcloud.io/api/project_badges/measure?project=SemVer.Git.Version&metric=bugs" />
+    <img alt="Code Smells" src="https://sonarcloud.io/api/project_badges/measure?project=SemVer.Git.Version&metric=code_smells" />
+    <img alt="Coverage" src="https://sonarcloud.io/api/project_badges/measure?project=SemVer.Git.Version&metric=coverage" />
   </p>
 </p>
 
