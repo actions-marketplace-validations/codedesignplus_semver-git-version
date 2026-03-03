@@ -256,9 +256,9 @@ export class GitVersion {
   private getCommitsSince(tag: string | null): string[] {
     try {
       if (tag && this.execMultiple(`git tag -l ${tag}`).length > 0) {
-        const lastCommit = this.execMultiple(`git show-ref -s ${tag}`)[0]
+        const lastCommit = this.execMultiple(`git rev-list -n 1 ${tag}`)[0]
 
-        core.debug(`git show-ref -s ${tag} | ${lastCommit}`)
+        core.debug(`git rev-list -n 1 ${tag} | ${lastCommit}`)
 
         const data = this.execMultiple(
           `git log --pretty=%B ${lastCommit}..HEAD ${this.options.logPathsFilter()}`
@@ -308,12 +308,16 @@ export class GitVersion {
       const output = execSync(cmd, {
         cwd: this.options.folder,
         encoding: 'utf8',
-        stdio: ['pipe', 'pipe', 'ignore']
+        stdio: ['pipe', 'pipe', 'pipe'],
+        maxBuffer: 1024 * 1024 * 50
       })
 
       return output.split('\n').filter(line => line.trim() !== '')
     } catch (error) {
-      throw new Error(`[ERROR] Command ${cmd} failed.`)
+      const err = error as { message: string; stderr?: Buffer }
+
+      const errorMessage = err.stderr ? err.stderr.toString() : err.message
+      throw new Error(`[ERROR] Command ${cmd} failed. Details: ${errorMessage}`)
     }
   }
 }

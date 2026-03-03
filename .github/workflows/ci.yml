@@ -94,13 +94,13 @@ jobs:
         uses: SonarSource/sonarcloud-github-action@master
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-          SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
+          SONAR_HOST_URL: ${{ vars.SONAR_HOST_URL }}
         with:
           args: >
             -Dsonar.projectVersion=${{ steps.test-action.outputs.new-version-prefix }}
             -Dsonar.organization=codedesignplus
-            -Dsonar.projectKey=CodeDesignPlus.Actions.GitVersion.Key
-            -Dsonar.projectName=CodeDesignPlus.Actions.GitVersion
+            -Dsonar.projectKey=SemVer.Git.Version
+            -Dsonar.projectName=SemVer.Git.Version
             -Dsonar.test.exclusions=__tests__/**
             -Dsonar.javascript.lcov.reportPaths=coverage/lcov.info
             -Dsonar.sources=src
@@ -108,11 +108,12 @@ jobs:
 
       - name: SonarQube Quality Gate check
         id: sonarqube-quality-gate-check
+        if: env.IS_RELEASE == 'true'
         uses: sonarsource/sonarqube-quality-gate-action@master
         timeout-minutes: 5
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-          SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
+          SONAR_HOST_URL: ${{ vars.SONAR_HOST_URL }}
 
       - name: Push tag
         id: push_tag
